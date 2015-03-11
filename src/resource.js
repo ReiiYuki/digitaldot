@@ -1,6 +1,8 @@
 var bg = 'res/images/bg.jpg'
+var dot1 = 'res/images/dot1.png'
 var res = {
-    backGround: bg
+    backGround: bg,
+    player1: dot1
 };
  
 var g_resources = [];
