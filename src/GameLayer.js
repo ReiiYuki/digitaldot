@@ -1,9 +1,17 @@
-var GameLayer = cc.LayerColor.extend({
-    init: function() {
-        this._super( new cc.Color( 127, 127, 127, 255 ) );
-        this.setPosition( new cc.Point( 0, 0 ) );
- 
-        return true;
+var GameLayer = cc.Layer.extend({
+    ctor:function () {
+        this._super();
+        this.init();
+    },
+
+    init:function () {
+        this._super();
+
+        //create the background image and position it at the center of screen
+        var centerPos = cc.p(800 / 2, 600 / 2);
+        var spriteBG = cc.Sprite.create(bg);
+        spriteBG.setPosition(centerPos);
+        this.addChild(spriteBG);
     }
 });
  
