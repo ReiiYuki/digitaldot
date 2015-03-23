@@ -13,7 +13,28 @@ var GameLayer = cc.Layer.extend({
         this.player1 = new Player();
         this.player1.setPosition(new cc.Point(50,300));
         this.addChild(this.player1);
-    }
+        this.player1.scheduleUpdate();
+        this.addKeyboardHandlers();
+    },
+    addKeyboardHandlers: function() {
+        var self = this;
+        cc.eventManager.addListener({
+            event: cc.EventListener.KEYBOARD,
+            onKeyPressed : function( keyCode, event ) {
+                self.onKeyDown( keyCode, event );
+            },
+            onKeyReleased: function( keyCode, event ) {
+                self.onKeyUp( keyCode, event );
+            }
+        }, this);
+    },
+    onKeyDown: function( keyCode, event ) {
+        this.player1.moveUP(keyCode);
+        
+    },
+    onKeyUp: function( keyCode, event ) {
+        this.player1.stopMove();
+    },
 });
  
 var StartScene = cc.Scene.extend({
