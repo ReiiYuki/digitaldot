@@ -43,7 +43,7 @@ var GameLayer = cc.Layer.extend({
             },
             onKeyReleased: function( keyCode, event ) {
                 console.log('Stop moving');
-                self.onKeyUp( keyCode, event );
+//                self.onKeyUp( keyCode, event );
             }
         }, this);
     },
