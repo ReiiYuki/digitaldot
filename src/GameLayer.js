@@ -17,7 +17,7 @@ var GameLayer = cc.Layer.extend({
         this.player1.scheduleUpdate();
         
         this.player2 = new Player(res.player2,Player.DIR.PLAYER2);
-        this.player2.setPosition(new cc.Point(100,300));
+        this.player2.setPosition(new cc.Point(700,300));
         this.addChild(this.player2);
         this.player2.scheduleUpdate();
         
