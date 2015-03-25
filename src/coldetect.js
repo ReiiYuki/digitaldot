@@ -32,3 +32,27 @@ var checkPlayerSparkCollision = function( player , spark ) {
         }
     }
 };
+var checkObjectBoundaryCollision = function(object) {
+    posObjX = object.getPositionX;
+    posObjY = object.getPositionY;
+    if (posObjX<40){
+        object.spdx*=-2
+        object.setPositionX(42);
+        console.log(object.spdx+"")
+    }
+    if (posObjX>760){
+        object.spdx*=-2
+        object.setPositionX(758);
+        console.log(object.spdx+"")
+    }
+    if (posObjY<35){
+        object.spdy*=-2
+        object.setPositionY(40);
+        console.log(object.spdy+"")
+    }
+    if (posObjY<565){
+        object.spdy*=-2    
+        object.setPositionY(560);
+        console.log(object.spdy+"")
+    }
+}

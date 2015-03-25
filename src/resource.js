@@ -1,8 +1,9 @@
-var bg = 'res/images/bg.jpg'
-var dot1 = 'res/images/dot1.png'
 var res = {
-    backGround: bg,
-    player1: dot1
+    backGround: 'res/images/bg.jpg',
+    player1: 'res/images/dot1.png',
+    SparkBall: 'res/images/spark.png',
+    Boundary1: 'res/images/Boundary1.png',
+    Boundary2: 'res/images/Boundary2.png'
 };
  
 var g_resources = [];

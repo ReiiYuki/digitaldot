@@ -13,6 +13,9 @@
     "jsList" : [
         "src/resource.js",
         "src/GameLayer.js",
-        "src/Player.js"
+        "src/Player.js",
+        "src/SparkBall.js",
+        "src/coldetect.js",
+        "src/Boundary.js"
     ]
 }
