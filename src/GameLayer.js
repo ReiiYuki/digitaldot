@@ -47,15 +47,15 @@ var GameLayer = cc.Layer.extend({
             }
         }, this);
     },
-//    onKeyDown: function( keyCode, event ) {
-//        this.player1.moveUP(keyCode);
-//        this.player2.moveUP(keyCode);
-//        
-//    },
-    onKeyUp: function( keyCode, event ) {
-        this.player1.stopMove();
-        this.player2.stopMove();
+    onKeyDown: function( keyCode, event ) {
+        this.player1.moveUP(keyCode);
+        this.player2.moveUP(keyCode);
+        
     },
+//    onKeyUp: function( keyCode, event ) {
+//        this.player1.stopMove();
+//        this.player2.stopMove();
+//    },
     update: function( dt) {
         this.sparkBall.move(this.player1);
         this.sparkBall.move(this.player2);
