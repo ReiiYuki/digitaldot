@@ -11,10 +11,15 @@ var GameLayer = cc.Layer.extend({
         spriteBG.setPosition(centerPos);
         this.addChild(spriteBG);
         
-        this.player1 = new Player();
+        this.player1 = new Player(res.player1,Player.DIR.PLAYER1);
         this.player1.setPosition(new cc.Point(100,300));
         this.addChild(this.player1);
         this.player1.scheduleUpdate();
+        
+        this.player2 = new Player(res.player2,Player.DIR.PLAYER2);
+        this.player2.setPosition(new cc.Point(100,300));
+        this.addChild(this.player2);
+        this.player2.scheduleUpdate();
         
         this.sparkBall = new SparkBall();
         this.sparkBall.setPosition(800/2,600/2);
@@ -42,15 +47,18 @@ var GameLayer = cc.Layer.extend({
             }
         }, this);
     },
-    onKeyDown: function( keyCode, event ) {
-        this.player1.moveUP(keyCode);
-        
-    },
+//    onKeyDown: function( keyCode, event ) {
+//        this.player1.moveUP(keyCode);
+//        this.player2.moveUP(keyCode);
+//        
+//    },
     onKeyUp: function( keyCode, event ) {
         this.player1.stopMove();
+        this.player2.stopMove();
     },
     update: function( dt) {
         this.sparkBall.move(this.player1);
+        this.sparkBall.move(this.player2);
     },
 });
  
