@@ -5,6 +5,7 @@ var GameLayer = cc.Layer.extend({
     },
     init:function () {
         this._super();
+        
         //create the background image and position it at the center of screen
         var centerPos = cc.p(800 / 2, 600 / 2);
         var spriteBG = cc.Sprite.create(res.backGround);
@@ -26,47 +27,54 @@ var GameLayer = cc.Layer.extend({
         this.addChild(this.sparkBall);
         this.sparkBall.scheduleUpdate();
         
-        this.boundary = new Boundary();
+        this.boundary = new Boundary(this.sparkBall);
         this.boundary.setPosition(800/2,600/2 );
+        this.boundary.scheduleUpdate();
         this.addChild(this.boundary);
         
         this.scheduleUpdate();
         this.addKeyboardHandlers();
+        
         return true;
     },
+    
     addKeyboardHandlers: function() {
+        
         var self = this;
+        
         cc.eventManager.addListener({
             event: cc.EventListener.KEYBOARD,
             onKeyPressed : function( keyCode, event ) {
                 self.onKeyDown( keyCode, event );
             },
             onKeyReleased: function( keyCode, event ) {
-                console.log('Stop moving');
-//                self.onKeyUp( keyCode, event );
             }
         }, this);
+        
     },
     onKeyDown: function( keyCode, event ) {
+        
         this.player1.moveUP(keyCode);
         this.player2.moveUP(keyCode);
         
+        
     },
-//    onKeyUp: function( keyCode, event ) {
-//        this.player1.stopMove();
-//        this.player2.stopMove();
-//    },
+
     update: function( dt) {
+        
         this.sparkBall.move(this.player1);
         this.sparkBall.move(this.player2);
+        
     },
 });
  
 var StartScene = cc.Scene.extend({
     onEnter: function() {
+        
         this._super();
         var layer = new GameLayer();
         layer.init();
         this.addChild( layer );
+        
     }
 });
