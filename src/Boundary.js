@@ -1,5 +1,5 @@
 var Boundary  = cc.Sprite.extend({
-    ctor: function(Ball) {
+    ctor: function( Ball ) {
         
         this._super();
         
@@ -9,11 +9,11 @@ var Boundary  = cc.Sprite.extend({
         
     },
     
-    update: function( dt){
+    update: function( dt ){
         
         var pos = this.Ball.getPosition();
         
-        if (pos.x<80||pos.x>720){
+        if ( pos.x < 80 || pos.x > 720 ){
             
             this.pic = res.Boundary2;
             

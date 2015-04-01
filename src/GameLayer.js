@@ -7,28 +7,28 @@ var GameLayer = cc.Layer.extend({
         this._super();
         
         //create the background image and position it at the center of screen
-        var centerPos = cc.p(800 / 2, 600 / 2);
-        var spriteBG = cc.Sprite.create(res.backGround);
-        spriteBG.setPosition(centerPos);
-        this.addChild(spriteBG);
+        var centerPos = cc.p( 400 , 300 );
+        var spriteBG = cc.Sprite.create( res.backGround );
+        spriteBG.setPosition( centerPos );
+        this.addChild( spriteBG );
         
-        this.player1 = new Player(res.player1,Player.DIR.PLAYER1);
-        this.player1.setPosition(new cc.Point(100,300));
-        this.addChild(this.player1);
+        this.player1 = new Player( res.player1 , Player.DIR.PLAYER1 );
+        this.player1.setPosition( new cc.Point( 100 , 300 ) );
+        this.addChild( this.player1 );
         this.player1.scheduleUpdate();
         
-        this.player2 = new Player(res.player2,Player.DIR.PLAYER2);
-        this.player2.setPosition(new cc.Point(700,300));
-        this.addChild(this.player2);
+        this.player2 = new Player( res.player2 , Player.DIR.PLAYER2 );
+        this.player2.setPosition( new cc.Point( 700 , 300 ) );
+        this.addChild( this.player2 );
         this.player2.scheduleUpdate();
         
         this.sparkBall = new SparkBall();
-        this.sparkBall.setPosition(800/2,600/2);
+        this.sparkBall.setPosition( 400 , 300 );
         this.addChild(this.sparkBall);
         this.sparkBall.scheduleUpdate();
         
         this.boundary = new Boundary(this.sparkBall);
-        this.boundary.setPosition(800/2,600/2 );
+        this.boundary.setPosition( 400 , 300 );
         this.boundary.scheduleUpdate();
         this.addChild(this.boundary);
         
@@ -44,26 +44,26 @@ var GameLayer = cc.Layer.extend({
         
         cc.eventManager.addListener({
             event: cc.EventListener.KEYBOARD,
-            onKeyPressed : function( keyCode, event ) {
-                self.onKeyDown( keyCode, event );
+            onKeyPressed : function( keyCode , event ) {
+                self.onKeyDown( keyCode , event );
             },
-            onKeyReleased: function( keyCode, event ) {
+            onKeyReleased: function( keyCode , event ) {
             }
-        }, this);
+        }, this );
         
     },
-    onKeyDown: function( keyCode, event ) {
+    onKeyDown: function( keyCode , event ) {
         
-        this.player1.moveUP(keyCode);
-        this.player2.moveUP(keyCode);
+        this.player1.moveUP( keyCode );
+        this.player2.moveUP( keyCode );
         
         
     },
 
-    update: function( dt) {
+    update: function( dt ) {
         
-        this.sparkBall.move(this.player1);
-        this.sparkBall.move(this.player2);
+        this.sparkBall.move( this.player1 );
+        this.sparkBall.move( this.player2 );
         
     },
 });
