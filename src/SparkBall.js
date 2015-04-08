@@ -25,8 +25,6 @@ var SparkBall = cc.Sprite.extend({
                 this.setPositionX( 50 );
                 
                 this.score2++ ;
-                
-                console.log( "Player 2 : " + this.score2 );
             }
             else if ( pos.x > 760 ){
                 
@@ -34,8 +32,6 @@ var SparkBall = cc.Sprite.extend({
                 this.setPositionX( 700 );
                                 
                 this.score1++ ;
-                
-                console.log( "Player 1 : " + this.score1 );
             }
         }
         else {
@@ -113,6 +109,22 @@ var SparkBall = cc.Sprite.extend({
             
         }
     },
+    
+    getScore : function( playerNumber ){
+    
+        if ( playerNumber == 1 ) {
+        
+            return this.score1;
+        
+        }
+        
+        if ( playerNumber == 2 ) {
+        
+            return this.score2;
+            
+        }
+    
+    }
 
 }); 
 

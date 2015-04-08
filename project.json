@@ -16,6 +16,7 @@
         "src/Player.js",
         "src/SparkBall.js",
         "src/coldetect.js",
-        "src/Boundary.js"
+        "src/Boundary.js",
+        "src/Score.js"
     ]
 }
