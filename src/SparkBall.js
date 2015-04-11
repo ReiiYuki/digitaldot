@@ -108,6 +108,11 @@ var SparkBall = cc.Sprite.extend({
             this.spdy = 10;
             
         }
+        
+        if ( checkPlayerSparkCollision( player , this ) > 1 ){
+           cc.audioEngine.playEffect(res.EffectSound)
+        }
+        
     },
     
     getScore : function( playerNumber ){

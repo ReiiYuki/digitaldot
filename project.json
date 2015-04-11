@@ -17,6 +17,7 @@
         "src/SparkBall.js",
         "src/coldetect.js",
         "src/Boundary.js",
-        "src/Score.js"
+        "src/Score.js",
+        "src/Timer.js"
     ]
 }

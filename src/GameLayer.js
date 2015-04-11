@@ -5,12 +5,18 @@ var GameLayer = cc.Layer.extend({
     },
     init:function () {
         this._super();
-        
+        cc.audioEngine.playMusic(res.BgSound,9999);
         //create the background image and position it at the center of screen
         var centerPos = cc.p( 400 , 300 );
         var spriteBG = cc.Sprite.create( res.backGround );
         spriteBG.setPosition( centerPos );
         this.addChild( spriteBG );
+        
+        this.time = new Timer(60);
+        this.time.setPosition(400,300);
+        this.addChild(this.time);
+        this.time.scheduleUpdate();
+
         
         this.scorePlayer1 = new Score(1);
         this.scorePlayer1.setPosition( 100 , 200 );
@@ -73,6 +79,7 @@ var GameLayer = cc.Layer.extend({
         this.sparkBall.move( this.player2 );
         this.scorePlayer1.scheduleUpdate();
         this.scorePlayer2.scheduleUpdate();
+
     },
     
     
