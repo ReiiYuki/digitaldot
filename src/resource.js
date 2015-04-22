@@ -1,16 +1,14 @@
 var scoreP1 = [];
+var scoreP2 = [];
+var digit = [];
 for (var i = 0;i<10;i++) {
     scoreP1.push('res/images/1'+i+'.png')
-}
-
-var scoreP2 = [];
-for (var i = 0;i<10;i++) {
     scoreP2.push('res/images/2'+i+'.png')
-}
-var digit = [];
-for (var i = 0;i<10;i++){
     digit.push('res/images/'+i+'.png')
 }
+var animatedReady1 = ['res/images/Ready1.png','res/images/Ready1-1.png','res/images/blank.png']
+var animatedReady2 = ['res/images/Ready2.png','res/images/Ready2-1.png','res/images/blank.png']
+    
 var res = {
     backGround: 'res/images/bg.jpg',
     player1: 'res/images/dot1.png',
@@ -21,7 +19,13 @@ var res = {
     Player1Label: 'res/images/PLAYER1LABEL.PNG',
     Player2Label: 'res/images/PLAYER2LABEL.PNG',
     BgSound: "res/sounds/miiro.mp3",
-    EffectSound: "res/sounds/soundmp3.mp3"
+    EffectSound: "res/sounds/soundmp3.mp3",
+    BgMain: "res/images/menubg.jpg",
+    MenuLabel: "res/images/menuLab.png",
+    StartButt1: "res/images/StartLab1.PNG",
+    StartButt2: "res/images/StartLab2.PNG",
+    CreditButt1: "res/images/CreditLab1.PNG",
+    CreditButt2: "res/images/CreditLab2.PNG"
 };
                  
 var g_resources = [];
@@ -30,10 +34,10 @@ for ( var i in res ) {
 }
 for (var i in scoreP1) {
     g_resources.push( scoreP1[ i ] );
-}
-for (var i in scoreP2) {
     g_resources.push(scoreP2[i]);
-}
-for (var i in digit) {
     g_resources.push(digit[i]);
+}
+for (var i in animatedReady1) {
+    g_resources.push(animatedReady1[i]);
+    g_resources.push(animatedReady2[i]);
 }

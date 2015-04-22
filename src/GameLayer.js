@@ -13,7 +13,7 @@ var GameLayer = cc.Layer.extend({
         this.addChild( spriteBG );
         
         this.time = new Timer(60);
-        this.time.setPosition(400,300);
+        this.time.setPosition(350,400);
         this.addChild(this.time);
         this.time.scheduleUpdate();
 

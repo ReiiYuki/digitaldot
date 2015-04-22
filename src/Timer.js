@@ -4,20 +4,22 @@ var Timer = cc.Node.extend({
         
         this.time = time;
         
+        this.state = Timer.STATE.START;
+        
         this.digit = digit
         
         this.FirstDigit = cc.Sprite.create(this.digit[0]);
-        this.FirstDigit.setAnchorPoint(new cc.Point(1,0.5));
+        this.FirstDigit.setAnchorPoint(new cc.Point(0,0));
         this.FirstDigit.setPosition(new cc.Point(0,0));
         this.addChild(this.FirstDigit)
         
         this.SecondDigit = cc.Sprite.create(this.digit[6]);
-        this.SecondDigit.setAnchorPoint(new cc.Point(1,0.5));
+        this.SecondDigit.setAnchorPoint(new cc.Point(0,0));
         this.SecondDigit.setPosition(new cc.Point(40,0));
         this.addChild(this.SecondDigit)
         
         this.ThirdDigit = cc.Sprite.create(this.digit[0]);
-        this.ThirdDigit.setAnchorPoint(new cc.Point(1,0.5));
+        this.ThirdDigit.setAnchorPoint(new cc.Point(0,0));
         this.ThirdDigit.setPosition(new cc.Point(80,0));
         this.addChild(this.ThirdDigit)
     },
@@ -28,12 +30,26 @@ var Timer = cc.Node.extend({
         digit2 = Math.floor((this.time/10)%10);
         digit3 = Math.floor(this.time%10);
         
-        this.FirstDigit.initWithFile(this.digit[digit1])
-        this.SecondDigit.initWithFile(this.digit[digit2])
-        this.ThirdDigit.initWithFile(this.digit[digit3])
+        if (this.state == Timer.STATE.START) {
+            this.FirstDigit.initWithFile(this.digit[digit1])
+            this.SecondDigit.initWithFile(this.digit[digit2])
+            this.ThirdDigit.initWithFile(this.digit[digit3])
+        }
+        if (this.time<1) {
+            this.state = false;
+        }
     },
     
     setTime: function(time){
         this.time = time;
+    },
+    
+    setState: function(STATE) {
+        this.state =STATE;
     }
+    
 });
+Timer.STATE = {
+    START:1,
+    STOP:0
+}
