@@ -76,8 +76,9 @@ var GameLayer = cc.Layer.extend({
             this.player2.moveUP( keyCode );
         }
         else {
-            console.log("Yes");
-            cc.director.runScene(new MainScene());
+            if (keyCode==cc.KEY.enter){
+                cc.director.runScene(new MainScene());
+            }
         }
         
     },
