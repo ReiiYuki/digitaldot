@@ -12,6 +12,8 @@ var GameLayer = cc.Layer.extend({
         spriteBG.setPosition( centerPos );
         this.addChild( spriteBG );
         
+        this.state = GameLayer.START;
+        
         this.time = new Timer(60);
         this.time.setPosition(350,400);
         this.addChild(this.time);
@@ -46,7 +48,8 @@ var GameLayer = cc.Layer.extend({
         this.boundary.setPosition( 400 , 300 );
         this.boundary.scheduleUpdate();
         this.addChild(this.boundary);
-        
+         this.scorePlayer1.scheduleUpdate();
+        this.scorePlayer2.scheduleUpdate();
         this.scheduleUpdate();
         this.addKeyboardHandlers();
         
@@ -68,23 +71,46 @@ var GameLayer = cc.Layer.extend({
         
     },
     onKeyDown: function( keyCode , event ) {
-        
-        this.player1.moveUP( keyCode );
-        this.player2.moveUP( keyCode );
+        if (this.state == GameLayer.START){
+            this.player1.moveUP( keyCode );
+            this.player2.moveUP( keyCode );
+        }
+        else {
+            console.log("Yes");
+            cc.director.runScene(new MainScene());
+        }
         
     },
 
     update: function( dt ) {
         this.sparkBall.move( this.player1 );
         this.sparkBall.move( this.player2 );
-        this.scorePlayer1.scheduleUpdate();
-        this.scorePlayer2.scheduleUpdate();
-
+        this.over();
+        
     },
     
+    over: function() {
+        if (this.time.isGameOver()) {
+            this.removeAllChildren();
+            if (this.sparkBall.getScore(this.player1)>this.sparkBall.getScore(this.player2)){
+               var test = cc.Sprite.create(res.P1WIN);
+                test.setPosition(400,300); 
+                this.addChild(test)
+            }
+            else {
+                var test = cc.Sprite.create(res.P2WIN);
+                test.setPosition(400,300); 
+                this.addChild(test)
+            }
+            this.state = GameLayer.STATE.OVER;
+        }
+    },
     
 });
- 
+GameLayer.STATE = {
+    START: 1,
+    OVER: 0
+}
 var StartScene = cc.Scene.extend({
     onEnter: function() {
         

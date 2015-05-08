@@ -36,7 +36,7 @@ var Timer = cc.Node.extend({
             this.ThirdDigit.initWithFile(this.digit[digit3])
         }
         if (this.time<1) {
-            this.state = false;
+            this.state = Timer.STATE.OVER;
         }
     },
     
@@ -46,10 +46,18 @@ var Timer = cc.Node.extend({
     
     setState: function(STATE) {
         this.state =STATE;
+    },
+    isGameOver: function(){
+        if(this.state == Timer.STATE.OVER) {
+            this.removeAllChildren();
+            return true;
+        }
+        return false;
     }
     
 });
 Timer.STATE = {
     START:1,
-    STOP:0
+    STOP:0,
+    OVER:-1
 }

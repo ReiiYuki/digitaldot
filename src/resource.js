@@ -18,14 +18,16 @@ var res = {
     Boundary2: 'res/images/Boundary2.png',
     Player1Label: 'res/images/PLAYER1LABEL.PNG',
     Player2Label: 'res/images/PLAYER2LABEL.PNG',
-    BgSound: "res/sounds/miiro.mp3",
+    BgSound: "res/sounds/techno.mp3",
     EffectSound: "res/sounds/soundmp3.mp3",
     BgMain: "res/images/menubg.jpg",
     MenuLabel: "res/images/menuLab.png",
     StartButt1: "res/images/StartLab1.PNG",
     StartButt2: "res/images/StartLab2.PNG",
     CreditButt1: "res/images/CreditLab1.PNG",
-    CreditButt2: "res/images/CreditLab2.PNG"
+    CreditButt2: "res/images/CreditLab2.PNG",
+    P1WIN: "res/images/P1WIN.png",
+    P2WIN: "res/images/P2WIN.png"
 };
                  
 var g_resources = [];

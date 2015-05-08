@@ -19,7 +19,6 @@
         "src/Boundary.js",
         "src/Score.js",
         "src/Timer.js",
-        "src/Ready.js",
         "src/MainMenu.js"
     ]
 }
