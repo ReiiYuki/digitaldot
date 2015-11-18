@@ -38,7 +38,6 @@ var MainLayer = cc.Layer.extend({
     
     },
     onKeyUp: function( keyCode, event ) {
-
         cc.director.runScene(new StartScene());
         
     },

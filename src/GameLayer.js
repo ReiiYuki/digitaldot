@@ -14,7 +14,7 @@ var GameLayer = cc.Layer.extend({
         
         this.state = GameLayer.START;
         
-        this.time = new Timer(60);
+        this.time = new Timer(5);
         this.time.setPosition(350,400);
         this.addChild(this.time);
         this.time.scheduleUpdate();
@@ -93,8 +93,13 @@ var GameLayer = cc.Layer.extend({
     over: function() {
         if (this.time.isGameOver()) {
             this.removeAllChildren();
-            if (this.sparkBall.getScore(this.player1)>this.sparkBall.getScore(this.player2)){
+            if (this.sparkBall.getScore(1)>this.sparkBall.getScore(2)){
                var test = cc.Sprite.create(res.P1WIN);
+                test.setPosition(400,300); 
+                this.addChild(test)
+            }
+            else if(this.sparkBall.getScore(1)==this.sparkBall.getScore(2)){
+                var test = cc.Sprite.create(res.Draw);
                 test.setPosition(400,300); 
                 this.addChild(test)
             }

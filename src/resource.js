@@ -27,7 +27,8 @@ var res = {
     CreditButt1: "res/images/CreditLab1.PNG",
     CreditButt2: "res/images/CreditLab2.PNG",
     P1WIN: "res/images/P1WIN.png",
-    P2WIN: "res/images/P2WIN.png"
+    P2WIN: "res/images/P2WIN.png",
+    Draw: "res/images/draw.png"
 };
                  
 var g_resources = [];
