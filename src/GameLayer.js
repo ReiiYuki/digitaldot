@@ -14,7 +14,7 @@ var GameLayer = cc.Layer.extend({
         
         this.state = GameLayer.START;
         
-        this.time = new Timer(5);
+        this.time = new Timer(60);
         this.time.setPosition(350,400);
         this.addChild(this.time);
         this.time.scheduleUpdate();
