@@ -4,6 +4,8 @@
 
 Digital Dot is multiplayer web-based game which allow two players push the spark ball by "FORCE". Digital Dot is developed with Cocos2D-X game engine.
 
+This project is running in https://reiiyuki.github.io/digitaldot/ but you have to wait it because Cocos2D-X is slow and some of sprite is missing.
+
 ## Purpose
 
 This project was created for training developing software with the individual software process. But the most expected result is the fun and happiness of players.
@@ -57,3 +59,7 @@ All right deserve to creator
 ## License
 
 MIT
+
+## Note
+
+If you see any bug please issue.
